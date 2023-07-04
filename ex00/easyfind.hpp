@@ -26,14 +26,4 @@ void	add(T &cont, int arr[], int size)
 		cont.push_back(arr[i]);
 }
 
-template<typename T>
-void	add_pair(T &cont, int arr[], int size)
-{
-	int	i;
-
-	i = -1;
-	while (++i < size)
-		cont[i] = arr[i];
-}
-
 #endif

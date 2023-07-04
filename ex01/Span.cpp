@@ -28,13 +28,10 @@ Span &Span::operator=(Span const &sp)
 
 void	Span::addNumber(int num)
 {
-	if (_cur < _size)
-	{
-		_vec.push_back(num);
-		_cur++;
-	}
-	else
+	if (_cur >= _size)
 		throw std::runtime_error("array is full: max size is " + to_s(_size));
+	_vec.push_back(num);
+	_cur++;
 }
 
 int	Span::shortestSpan()
