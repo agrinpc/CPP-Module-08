@@ -19,6 +19,12 @@ int	main(void)
 
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
+
+	MutantStack<int>::const_iterator it2 = mstack.begin();
+	MutantStack<int>::const_iterator ite2 = mstack.end();
+
+	MutantStack<int>::reverse_iterator it3 = mstack.rbegin();
+	MutantStack<int>::reverse_iterator ite3 = mstack.rend();
 	++it;
 	--it;
 	while (it != ite)
@@ -26,6 +32,23 @@ int	main(void)
 		std::cout << "m: " << *it << std::endl;
 		++it;
 	}
+
+	std::cout << std::endl;
+
+	while (it2 != ite2)
+	{
+		std::cout << "m: " << *it2 << std::endl;
+		++it2;
+	}
+
+	std::cout << std::endl;
+
+	while (it3 != ite3)
+	{
+		std::cout << "m: " << *it3 << std::endl;
+		++it3;
+	}
+
 	std::stack<int> s(mstack);
 
 	std::cout << std::endl;

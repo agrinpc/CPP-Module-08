@@ -7,6 +7,10 @@
 #include <vector>
 #include <sstream>
 
+#define NUM_ELM 20000
+#define MIN_ELM -15000000
+#define MAX_ELM 15000000
+
 template<typename T>
 std::string	to_s(const T &val)
 {
@@ -46,7 +50,18 @@ class Span
 		template<typename T>
 		void	addMultiple(T inp)
 		{
-			if (_cur + (int)inp.size() >= _size)
+			int	i = -1;
+			typename T::iterator end_it = inp.begin();
+			while (++i < _size - _cur && end_it != inp.end())
+				++end_it;
+			_vec.insert(_vec.end(), inp.begin(), end_it);
+			_cur += i;
+		};
+
+		template<typename T>
+		void	addMultipleSafe(T inp)
+		{
+			while (_cur + (int)inp.size() > _size)
 				throw std::runtime_error("array is full: max size is " + to_s(_size));
 			_vec.insert(_vec.end(), inp.begin(), inp.end());
 			_cur += (int)inp.size();
